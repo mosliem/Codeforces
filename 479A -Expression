@@ -1,0 +1,13 @@
+//C++ accepted
+#include<iostream>
+#include <algorithm>
+using namespace std;
+ 
+int main()
+{
+	int a, b, c;
+	cin >> a >> b >> c ;
+	int ans1 = max((a + b + c), (a * b * c));
+	int ans2 = max((a + b) * c, a * (b + c));
+	cout << max(ans1, ans2);
+}
