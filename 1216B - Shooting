@@ -1,0 +1,28 @@
+//c++ accepted
+#include<iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+ 
+int main()
+{
+	int n; 
+	cin >> n;
+	vector<pair <int, int> >vec;
+	int a; 
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a;
+		vec.push_back(make_pair(a, i));
+	}
+	sort(vec.begin(), vec.end());
+	int shoot = 0, x = 0;
+	for (auto it = vec.rbegin(); it != vec.rend(); it++)
+	{
+		shoot += (it->first*x) + 1;
+		x++;
+	}
+	cout << shoot << endl;
+	for (auto it = vec.rbegin(); it != vec.rend(); it++)
+		cout << it->second+1 << " ";
+}
