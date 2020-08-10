@@ -1,0 +1,33 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+#define ll  long long 
+ll arr[100010], orderdArr[100010];
+int main()
+{
+    ll  n , m ;
+	cin >> n;
+	for (ll i = 1; i <= n; i++)
+	{
+		cin>>orderdArr[i];
+		arr[i] = orderdArr[i]+arr[i-1];
+	}
+	sort(orderdArr+1,orderdArr+n+1);
+	for (int i = 1; i <= n; i++)
+		orderdArr[i] += orderdArr[i - 1];
+	cin >> m;
+	while (m--)
+	{
+		ll l, r , ch;
+		cin >> ch >> l >> r;
+		if (ch == 1)
+		{
+     		cout << arr[r]-arr[l-1] << endl;
+		}
+		else
+		{
+			cout << orderdArr[r] - orderdArr[l - 1] << endl;;
+		}
+		
+	}
+}
