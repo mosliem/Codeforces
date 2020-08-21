@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	vector<pair<int, int>> matches;
+	int n, m;
+	cin >> n >> m;
+	for (int i = 0; i < m; i++)
+	{
+		int a, b;
+		cin >> a >> b;
+		matches.push_back(make_pair(b, a));
+	}
+	sort(matches.begin(), matches.end());
+	int total = 0;
+	
+	
+	for (auto it = matches.rbegin(); it != matches.rend(); it++)
+	{
+		if (n <= 0)
+			break;
+		if (n >= it->second)
+		{
+			total += (it->first * it->second);
+			n -= it->second;
+		}
+		else
+		{
+			total += n * it->first;
+			n -= it->second;
+		}
+
+	}
+	cout << total;
+	
+}
+
