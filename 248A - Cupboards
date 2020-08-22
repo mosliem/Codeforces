@@ -1,0 +1,20 @@
+#include <iostream>
+#include<string>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	int n;
+	cin >> n;
+	int r, l , openR = 0 , openL = 0;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> l >> r;
+		openR += r; //calculate the open right ones
+		openL += l;//calculate the open left ones
+	}
+	int res = 0;
+	cout << min(n - openR, openR) + min(n - openL, openL); // take the min of right ones which is open or closed, so we take the smallest time
+}
+
