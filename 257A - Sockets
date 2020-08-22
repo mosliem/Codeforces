@@ -1,0 +1,52 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	int n, m, k, arr[52] = { 0 };
+	cin >> n >> m >> k;
+	for (int i = 0; i < n; i++)
+		cin >> arr[i];
+	sort(arr, arr + n);
+	if (m <= k)
+	{
+		cout << 0 << "\n";
+		return 0;
+	}
+	else
+	{
+		int cnt = 1, total = arr[n-1]+(k-1),  i = n-1;
+		while (i >= 0)
+		{
+			//cout << total << " "<< k<<" "<<i<<endl;
+			if (total >= m)
+			{
+				cout << cnt;
+				return 0;
+			}
+			else
+			{
+				if (k != 0)
+				{
+					i--;
+					k--;
+					total += arr[i];
+					total -= 1;
+					cnt++;
+					
+				}
+				else
+				{
+					i--;
+					total -= 1;
+					cnt++;
+					total += arr[i];
+					
+				}
+			}
+		}
+	}
+	cout << "-1";
+}
+ 
