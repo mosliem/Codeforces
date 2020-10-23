@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <map>
+#include <cmath>
+#include <set>
+using namespace std;
+
+#define ll long long
+int main()
+{
+	int arr[3] = {0}, n = 3;
+	while (n-- && n >= 0)
+	{
+		string s;
+		cin >> s;
+		if (s[1] == '>')
+			arr[s[0] - 'A']++;
+		else
+			arr[s[2] - 'A']++;
+	}
+	if (arr[0] == 1&&arr[1] ==1&& arr[2]==1)
+	{
+		cout << "Impossible";
+		return 0;
+	}
+	if (arr[0] == 0)
+		cout << "A";
+	else if (arr[1] == 0)
+		cout << "B";
+	else
+		cout << "C";
+	if (arr[0] == 1)
+		cout << "A";
+	else if (arr[1] == 1)
+		cout << "B";
+	else
+		cout << "C";
+
+	if (arr[0] == 2)
+		cout << "A";
+	else if (arr[1] ==2)
+		cout << "B";
+	else
+		cout << "C";
+
+}
