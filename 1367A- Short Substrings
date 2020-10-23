@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <map>
+#include <cmath>
+#include <set>
+using namespace std;
+
+#define ll long long
+int main()
+{
+	int n;
+	cin >> n;
+	while (n--)
+	{
+		string s , g; 
+		cin >> s;
+		g += s[0];
+		for (int i = 1; i < s.length() ; i+=2)
+		{
+			g += s[i];
+		}
+		cout << g << endl;
+	}
+}
