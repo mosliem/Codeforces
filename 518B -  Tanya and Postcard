@@ -1,0 +1,55 @@
+include <iostream>
+#include <string>
+#include <algorithm>
+#include <map>
+#include <cmath>
+#include <set>
+using namespace std;
+
+#define ll long long
+int main()
+{
+	string t, n;
+	cin >> t >> n;
+	ll w = 0, o = 0, arr[26] = { 0 }, arr2[26] = { 0 };
+	for (int i = 0; i < n.length(); i++)
+	{   
+		if(n[i] >= 'a')
+		 arr[n[i] - 'a']++;
+		else
+			arr2[n[i] - 'A']++;
+	}
+	for (int i = 0; i < t.length(); i++)
+	{
+		if (t[i] >= 'A' && t[i] <= 'Z')
+		{
+			if (arr2[t[i] - 'A'] > 0)
+			{
+				arr2[t[i] - 'A']--;
+				w++;
+				t[i] = '0';
+			}
+		}
+		else
+		{
+			if (arr[t[i] - 'a'] > 0)
+			{
+				arr[t[i] - 'a']--;
+				w++;
+				t[i] = '0';
+			}
+		}
+		
+	}
+	for(int i = 0 ; i < t.length() ; i++)
+	{
+		if (t[i] != '0')
+		{
+			if (islower(t[i]) && arr2[toupper(t[i])-'A'] > 0)
+				arr2[toupper(t[i])-'A']--, o++;
+			else if (isupper(t[i]) && arr[tolower(t[i])-'a'] > 0)
+				arr[tolower(t[i])-'a']--, o++;
+		}
+	}
+	cout << w << " " << o;
+}
