@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <set>
+#include <cmath>
+using namespace std;
+#define ll long long
+
+int main()
+{
+	int n, k;
+	cin >> n >> k;
+	pair<int , int>arr[110];
+	for (int i = 0; i < n; i++)
+	{
+		cin >> arr[i].first;
+		arr[i].second = i + 1;
+	}
+	int j = 0, ind[110] = {0}, cnt = 0;
+	sort(arr, arr + n);
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i].first > k)
+			break;
+		k -= arr[i].first;
+		ind[j++] = arr[i].second;
+		cnt++;
+	}
+	cout << cnt << endl;
+	sort(ind, ind + j);
+	for (int i = 0; i < j; i++)
+		cout << ind[i] << " ";
+}
