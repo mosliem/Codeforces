@@ -1,0 +1,54 @@
+#include <iostream>
+#include <algorithm>
+#include <set>
+#include <vector>
+using namespace std;
+
+#define ll long long
+int main()
+{
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		int n;
+		cin >> n;
+		int arr[6000];
+		bool taken[6000] = { 0 };
+		pair<int, int>road[6000];
+		for (int i = 1; i <= n; i++)
+			cin >> arr[i];
+		int cnt = 1;
+		for (int i = 1; i <= n; i++)
+		{
+			for (int j = 1 ; j <= n; j++)
+			{
+				if (arr[i] != arr[j] && !taken[j])
+				{
+					//cout << i << " " << j << endl;
+					taken[i] = 1, taken[j] = 1;
+					road[cnt].first = i;
+					road[cnt].second = j;
+					cnt++;
+				}
+			}
+		}
+		bool f = 1;
+		for (int i = 1; i <= n; i++)
+		{
+			if (!taken[i])
+			{
+				cout << "NO" << endl;
+				f = 0;
+				break;
+			}
+		}
+		if (f)
+		{
+			cout << "YES" << endl;
+			for (int i = 1; i < cnt; i++)
+				cout << road[i].first << " " << road[i].second << endl;
+		}
+	}
+
+}
