@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+int main()
+{
+	int n;
+	cin >> n;
+	int i = 2 , j = 1;
+	ll cnt = 0;
+	while (n > 0)
+	{
+		if ((n - 1) >= 0 && j % 2 != 0)
+		{
+			n--;
+			cnt++;
+		}
+		else if ((n - 2) >= 0 && j % 2 == 0)
+		{
+			n -= 2;
+			cnt++;
+		}
+		else
+			break;
+		j++;
+	}
+	cout << cnt << endl;
+}
