@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+#include <algorithm>
+using namespace std;
+
+#define ll long long
+int main()
+{    
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		int n;
+		cin >> n;
+		int x = 0 , cnt = 1;
+		while (x < n)
+		{
+			x += cnt;
+			cnt++;
+		}
+		if (n == x - 1)
+			cout << cnt  << endl;
+		else
+			cout << cnt-1 << endl;
+	}
+}
