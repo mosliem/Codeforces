@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+#include <algorithm>
+using namespace std;
+
+#define ll long long
+int main()
+{    
+	int n, k;
+	cin >> n >> k;
+	int rest = 240 - k , cnt = 0 , i = 1;
+	while (rest >= 0&&i <= n)
+	{
+		if ((rest - (5 * i)) >= 0)
+		{
+			rest -= (5 * i);
+			cnt++;
+			i++;
+		}
+		else
+			break;
+	}
+	cout << cnt << endl;
+}
