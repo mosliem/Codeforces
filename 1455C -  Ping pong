@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+#include <algorithm>
+using namespace std;
+
+#define ll long long
+
+int main()
+{    
+	int t;
+	cin >> t;
+	while (t--)
+	{
+		int x,y;
+		cin >> x>>y;
+		x--; // as alice will start the serve so , its power decreasing by one
+		    // so the max number of wins for the two is each player serve a ball and the other doesn't play it back
+		cout << x << " " << y << endl;
+  
+	}
+
+}
